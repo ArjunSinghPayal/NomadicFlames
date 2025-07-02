@@ -35,6 +35,7 @@ async function main() {
 
 // Express App Init
 const app = express();
+app.set("trust proxy", 1);
 const port = process.env.PORT || 3000;
 
 // View Engine
@@ -69,10 +70,11 @@ app.use(
     name: "Trek&Dine",
     secret,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // Enable in production with HTTPS
+      sameSite: "lax",
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
