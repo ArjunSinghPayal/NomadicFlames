@@ -1,0 +1,74 @@
+/* Base Glassmorphism & Typography */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: #f8f9fa;
+  background: url("https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0")
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Navbar glass effect */
+.glass-navbar {
+  background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Card with glass blur */
+.glass-card {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Glow-style buttons */
+.glow-btn {
+  border: 1px solid #f8f9fa;
+  color: #f8f9fa;
+}
+
+.glow-btn:hover {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+/* Text enhancements */
+.text-shadow {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Table fixes */
+.table-dark th,
+.table-dark td {
+  vertical-align: middle;
+}
+
+/* Truncate long text elegantly */
+.truncate {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Forms for settings */
+.form-control,
+.form-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid #ccc;
+}
+
+.form-control::placeholder {
+  color: #ddd;
+}
+
+/* Utility spacing for sections */
+.section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

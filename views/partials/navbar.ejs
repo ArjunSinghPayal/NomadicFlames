@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/styles/navbar.css" />
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark p-1">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">NomadicFlames</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Left side -->
+      <div class="navbar-nav me-auto">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/campgrounds">Campgrounds</a>
+        <a class="nav-link" href="/campgrounds/new">New Campground</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="navbar-nav ms-auto align-items-center">
+        <% if (!currentUser) { %>
+        <a class="nav-link" href="/register">Register</a>
+        <a class="nav-link" href="/login">Login</a>
+        <% } else { %> <% if (currentUser.isAdmin) { %>
+        <!-- Admin Dropdown -->
+        <div class="nav-item dropdown user-dropdown">
+          <a
+            class="nav-link dropdown-toggle d-flex align-items-center text-white"
+            href="#"
+            id="adminDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle me-1"></i><%= currentUser.username %>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end bg-dark"
+            aria-labelledby="adminDropdown"
+          >
+            <li>
+              <a class="dropdown-item text-white" href="/dashboard"
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item text-white" href="/admin">Admin Panel</a>
+            </li>
+          </ul>
+        </div>
+        <% } else { %>
+        <!-- Regular User -->
+        <span class="navbar-text text-white me-2 d-flex align-items-center">
+          <a href="/dashboard" class="nav-link"
+            ><i class="bi bi-person-circle me-1"></i><%= currentUser.username
+            %></a
+          >
+        </span>
+        <% } %>
+        <a href="/logout" class="nav-link">Logout</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

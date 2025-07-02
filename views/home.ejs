@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Favicon and Web App Icons -->
+    <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/icons/favicon-16x16.png"
+    />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/icons/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Android Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/assets/icons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/assets/icons/android-chrome-512x512.png"
+    />
+
+    <!-- SEO: Open Graph for Social Sharing -->
+    <meta
+      property="og:title"
+      content="NomadicFlame – Escape to Nature’s Table"
+    />
+    <meta
+      property="og:description"
+      content="Discover campgrounds where mountains meet fine dining. Plan your next adventure with NomadicFlame."
+    />
+    <meta property="og:image" content="/assets/icons/Nomadic_Flames.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="NomadicFlame – Escape to Nature’s Table"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover campgrounds where mountains meet fine dining. Plan your next adventure with NomadicFlame."
+    />
+    <meta name="twitter:image" content="/assets/icons/Nomadic_Flames.png" />
+
+    <!-- Primary Meta Tags -->
+    <title>NomadicFlame – Escape to Nature’s Table</title>
+    <meta name="title" content="NomadicFlame – Escape to Nature’s Table" />
+    <meta
+      name="description"
+      content="Discover Indian campgrounds where mountains meet fine dining. Plan your next soulful escape with NomadicFlame."
+    />
+    <meta
+      name="keywords"
+      content="campgrounds, Indian camping, travel, nature, fine dining, outdoor adventures, NomadicFlame"
+    />
+    <meta name="author" content="Arjun Singh Payal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta charset="UTF-8" />
+
+    <!-- Canonical URL (replace with your actual domain) -->
+    <link rel="canonical" href="https://your-domain.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com/" />
+    <meta
+      property="og:title"
+      content="NomadicFlame – Escape to Nature’s Table"
+    />
+    <meta
+      property="og:description"
+      content="Discover Indian campgrounds where mountains meet fine dining. Plan your next soulful escape with NomadicFlame."
+    />
+    <meta property="og:image" content="/assets/icons/Nomadic_Flames.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://your-domain.com/" />
+    <meta
+      name="twitter:title"
+      content="NomadicFlame – Escape to Nature’s Table"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover Indian campgrounds where mountains meet fine dining. Plan your next soulful escape with NomadicFlame."
+    />
+    <meta name="twitter:image" content="/assets/icons/Nomadic_Flames.png" />
+
+    <!-- Now Font (Fallback to Inter/Sans if unavailable) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/home.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <div class="brand">NomadicFlames</div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="/" class="active">Home</a>
+          <a href="/campgrounds">Campgrounds</a>
+          <% if (!currentUser) { %>
+          <a href="/register">Register</a>
+          <a href="/login">Login</a>
+          <% } else { %>
+          <a href="/logout">Logout</a>
+          <% } %>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <h1>NomadicFlames</h1>
+      <p class="subtitle">Welcome to NomadicFlames</p>
+      <p class="lead">
+        Under a sky full of stars and whispers of pine,<br />
+        find a place where hearts wander freely.<br />
+        Let the crackle of the fire be your soundtrack,<br />
+        and the stillness of the woods your sweetest escape.
+      </p>
+      <a href="/campgrounds" class="view-btn">View Campgrounds</a>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 NomadicFlames</p>
+    </footer>
+
+    <script src="/javascripts/navbarHamburgerToggle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<% layout('layouts/adminLayout') %>
+
+<div class="container mt-5 mb-5">
+  <h2 class="mb-4 text-shadow">Account Settings</h2>
+  <div class="card glass-card p-4">
+    <!-- Profile Form -->
+    <form action="/admin/settings/profile" method="POST">
+      <h5 class="text-shadow">Profile Info</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            value="<%= user.username %>"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            value="<%= user.email %>"
+          />
+        </div>
+      </div>
+      <button type="submit" class="btn glow-btn mt-3">Update Profile</button>
+    </form>
+
+    <hr class="my-4 text-light" />
+
+    <!-- Password Form -->
+    <form action="/admin/settings/password" method="POST">
+      <h5 class="text-shadow">Change Password</h5>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="currentPassword">Current Password</label>
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="password"
+              id="password1"
+              name="currentPassword"
+              required
+            />
+            <span
+              class="input-group-text toggle-password"
+              data-target="password1"
+              style="cursor: pointer"
+            >
+              <i class="bi bi-eye" id="toggleIcon"></i>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="newPassword">New Password</label>
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="password"
+              id="password2"
+              name="newPassword"
+              required
+            />
+            <span
+              class="input-group-text toggle-password"
+              data-target="password2"
+              style="cursor: pointer"
+            >
+              <i class="bi bi-eye" id="toggleIcon"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn glow-btn mt-3">Change Password</button>
+    </form>
+
+    <hr class="my-4 text-light" />
+
+    <!-- Maintenance Mode Form -->
+    <form action="/admin/settings/maintenance" method="POST">
+      <h5 class="text-shadow">Maintenance Mode</h5>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="maintenanceSwitch"
+        name="maintenanceMode" <%= maintenanceMode ? 'checked' : '' %> />
+        <label class="form-check-label" for="maintenanceSwitch">
+          Enable Maintenance Mode
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/javascripts/autoSubmitSwitch.js"></script>
+<script src="/javascripts/showPasswordSetting.js"></script>

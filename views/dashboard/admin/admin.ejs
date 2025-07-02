@@ -1,0 +1,118 @@
+<% layout('layouts/adminLayout') %>
+
+<div class="container mt-5">
+  <h1 class="mb-4 text-shadow">Welcome Admin</h1>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card glass-card p-3">
+        <h5>Total Campgrounds</h5>
+        <h2><%= stats.totalCamps %></h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card glass-card p-3">
+        <h5>Total Reviews</h5>
+        <h2><%= stats.totalReviews %></h2>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card glass-card p-3">
+        <h5>Total Users</h5>
+        <h2><%= stats.totalUsers %></h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-shadow mb-3">Recent Activity</h3>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card glass-card p-3">
+        <h5 class="mb-3">Recent Campgrounds</h5>
+        <ul class="list-group list-group-flush">
+          <% if (recentCamps.length === 0) { %>
+          <li class="list-group-item bg-transparent text-light">
+            No recent campgrounds.
+          </li>
+          <% } else { %> <% recentCamps.forEach(camp => { %>
+          <li
+            class="list-group-item bg-transparent text-light d-flex justify-content-between align-items-center"
+          >
+            <span>
+              <a
+                href="/campgrounds/<%= camp._id %>"
+                class="text-light text-decoration-none fw-semibold"
+              >
+                <%= camp.title %> </a
+              ><br />
+              <small class="text-secondary"
+                >By <%= camp.author?.username || 'Unknown' %></small
+              >
+            </span>
+            <small class="text-secondary"
+              ><%= camp.createdAt.toLocaleString("en-IN") %></small
+            >
+          </li>
+          <% }) %> <% } %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card glass-card p-3">
+        <h5 class="mb-3">Recent Reviews</h5>
+        <ul class="list-group list-group-flush">
+          <% if (recentReviews.length === 0) { %>
+          <li class="list-group-item bg-transparent text-light">
+            No recent reviews.
+          </li>
+          <% } else { %> <% recentReviews.forEach(review => { %>
+          <li class="list-group-item bg-transparent text-light">
+            <span>
+              <strong>
+                <a
+                  href="/campgrounds/<%= review.campground?._id %>"
+                  class="text-light text-decoration-none"
+                >
+                  <%= review.campground?.title || 'Deleted Campground' %>
+                </a>
+              </strong>
+              <span class="text-warning"> — <%= review.rating %>⭐</span><br />
+              <small class="text-secondary"
+                >By <%= review.author?.username || 'Unknown' %></small
+              ><br />
+              <small class="text-secondary"
+                ><%= review.createdAt.toLocaleString("en-IN") %></small
+              >
+            </span>
+            <p class="mb-0 review-text" data-full="<%= review.body %>">
+              <%= review.body.length > 100 ? review.body.slice(0, 100) + '...' :
+              review.body %> <% if (review.body.length > 100) { %>
+              <a href="#" class="read-more text-info ms-2">Read More</a>
+              <% } %>
+            </p>
+          </li>
+          <% }) %> <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-shadow mb-3">Quick Actions</h3>
+  <div class="d-flex flex-wrap gap-3">
+    <a href="/campgrounds/new" class="btn glow-btn">Add New Campground</a>
+    <a href="/admin/users" class="btn glow-btn">Manage Users</a>
+    <a href="/admin/settings" class="btn glow-btn">Settings</a>
+  </div>
+</div>
+
+<div class="container mt-5 mb-5">
+  <h3 class="text-shadow mb-3">System Info</h3>
+  <div class="card glass-card p-3">
+    <p>🕒 Server Time: <span id="clock">Loading...</span></p>
+    <p>💾 Database Status: <span class="text-success">Connected</span></p>
+    <p>📦 App Version: <code>v1.0.0</code></p>
+  </div>
+</div>

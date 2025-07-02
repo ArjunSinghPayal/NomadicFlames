@@ -1,0 +1,21 @@
+.user-dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.user-dropdown .dropdown-toggle::after {
+  display: none;
+}
+
+/* Hover color for dropdown items */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #32363b;
+  color: white;
+}
+
+/* Clicked/active color for dropdown items */
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item:focus {
+  background-color: #5e6775;
+  color: white;
+}

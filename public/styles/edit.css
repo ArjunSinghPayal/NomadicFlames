@@ -1,0 +1,12 @@
+.back-link {
+  color: #6c757d;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  font-size: 1rem;
+}
+
+.back-link:hover {
+  color: #343a40;
+  text-decoration: none;
+}
